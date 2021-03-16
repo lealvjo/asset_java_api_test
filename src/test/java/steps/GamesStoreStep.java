@@ -14,12 +14,6 @@ public class GamesStoreStep {
     private GameStoreService gameStore = new GameStoreService();
     private Response response;
 
-
-    @Dado("faca post de um novo jogo")
-    public void faca_post_de_um_novo_jogo() {
-
-    }
-
     @Dado("o atributo {string} possuir o valor {string}")
     public void o_atributo_possuir_o_valor(String field, String value) {
         gameStore.setFieldNewGame(field, value);
@@ -43,11 +37,6 @@ public class GamesStoreStep {
     @Entao("deve retornar um body com a mensagem {string}")
     public void deve_retornar_um_body_com_a_mensagem(String message) {
         Assert.assertEquals(message, gameStore.getMessageField("message"));
-    }
-
-    @Dado("que altere o preco do jogo enviado")
-    public void que_altere_o_preco_do_jogo_enviado() {
-
     }
 
     @Dado("o atributo {string} possuir um novo valor {string}")
