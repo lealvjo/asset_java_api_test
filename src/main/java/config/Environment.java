@@ -11,7 +11,7 @@ public class Environment{
         return env;
     }
 
-    public static Properties getProp() throws IOException {
+    private static Properties getProp() throws IOException {
         Properties props = new Properties();
         FileInputStream file = new FileInputStream("src/test/resources/env.properties");
         props.load(file);
