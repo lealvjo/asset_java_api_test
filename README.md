@@ -1,4 +1,4 @@
-# Asset_java_api_test
+# asset_java_api_test
 
 Example of how to automate API, using java and behavior-oriented development (BDD)(Cucumber)
 
