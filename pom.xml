@@ -7,15 +7,45 @@
     <groupId>groupId</groupId>
     <artifactId>asset_java_api_test</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+
+        <aspectj.version>1.8.10</aspectj.version>
+        <restassured.version>3.1.1</restassured.version>
+        <jackson.version>2.9.8</jackson.version>
+        <cucumber.version>3.0.2</cucumber.version>
+        <log4j.version>2.13.0</log4j.version>
+        <env>des</env> <!-- des, prod ou uat-->
+    </properties>
     <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.22.0</version>
                 <configuration>
-                    <source>7</source>
-                    <target>7</target>
+                    <systemPropertyVariables>
+                        <env>${env}</env>
+                        <endpoint>https://jsonplaceholder.typicode.com</endpoint>
+                    </systemPropertyVariables>
+                    <testFailureIgnore>true</testFailureIgnore>
+                    <argLine>
+                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+                    </argLine>
+                    <includes>
+                        <include>**/*Runner.java</include>
+                    </includes>
                 </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.aspectj</groupId>
+                        <artifactId>aspectjweaver</artifactId>
+                        <version>${aspectj.version}</version>
+                    </dependency>
+                </dependencies>
             </plugin>
         </plugins>
     </build>
