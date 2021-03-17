@@ -11,4 +11,6 @@ import org.junit.runner.RunWith;
 		 plugin = {"pretty","json:target/json-cucumber-reports/cucumber.json",
 				 	"junit:target/xml-junit/junit.xml"},
 		features = {"src/test/resources/features"})
-public class Runner {}
+public class Runner {
+
+}
