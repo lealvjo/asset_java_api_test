@@ -7,11 +7,7 @@ import pojo.Game;
 import pojo.ReportResponse;
 
 import java.io.IOException;
-
-
-import static io.restassured.RestAssured.get;
 import static io.restassured.RestAssured.given;
-
 
 public class GameStoreService extends TestSupport {
 
