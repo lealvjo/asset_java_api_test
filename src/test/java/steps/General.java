@@ -15,7 +15,6 @@ public class General {
 
     @Entao("deve me retornar o status code {int}")
     public void deve_me_retornar_o_status_code(int statusCode) {
-        System.out.println(getResponseGeneral().statusCode());
         Assert.assertEquals(statusCode, getResponseGeneral().statusCode());
     }
 }
